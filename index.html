@@ -1,222 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carta para mi negrito 🩷</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    html, body {
-      margin:0;
-      padding:0;
-      height:100%;
-      overflow:hidden;
-      background: linear-gradient(to bottom, #b3e0ff, #cde6ff);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-family:'Roboto', sans-serif;
-    }
-
-    /* Textos */
-    .text {
-      position:absolute;
-      opacity:0;
-      text-align:center;
-      font-size:2.5em;
-      font-weight:700;
-      color:#fff;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-      white-space: pre-wrap;
-    }
-
-    /* Pregunta más arriba */
-    #text2 {
-      top: 25%;
-    }
-
-    /* Corazón más abajo */
-    #heart {
-      font-size:4.5em;
-      color:#ff2d55;
-      opacity:0;
-      position:absolute;
-      bottom:10%;
-      animation:heartbeat 1s infinite;
-    }
-
-    @keyframes heartbeat {
-      0%,100% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-    }
-
-    /* Carta inicial (sobre) */
-    #envelope {
-      font-size:5em;
-      opacity:0;
-      position:absolute;
-      transition: transform 1s, opacity 1s;
-    }
-
-    /* Carta abierta con papel */
-    #card {
-      position:absolute;
-      width:60%;
-      height:60%;
-      background:#fff;
-      border-radius:15px;
-      transform: scale(0) rotateX(-90deg);
-      transform-origin: top;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      overflow:hidden;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:20px;
-      transition: transform 2s ease;
-    }
-
-    #cardContent {
-      font-family:'Pacifico', cursive;
-      color:#333;
-      font-size:1.2em;
-      line-height:1.5em;
-      opacity:0;
-      text-align:left;
-      overflow-y:auto;
-      height:100%;
-      transition: opacity 2s ease;
-    }
-
-    /* Temporizador */
-    #counter {
-      position:absolute;
-      bottom:20px;
-      font-size:1.5em;
-      color:#fff;
-      opacity:0;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-      transition: opacity 2s;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti 💖</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Texto inicial -->
-<div id="text1" class="text">Para mi negrito 🩷</div>
+<div id="slider">
+    <div class="slide active">
+        <h1>✨ Hoy tocaste hermoso ✨</h1>
+        <p>Tu música llenó el lugar y mi corazón.</p>
+    </div>
 
-<!-- Pregunta con corazón abajo -->
-<div id="text2" class="text">¿Sabes por qué te amo?</div>
-<div id="heart">❤️</div>
+    <div class="slide">
+        <h1>🎶 Cada nota tuya</h1>
+        <p>me recuerda lo talentosa y especial que eres.</p>
+    </div>
 
-<!-- Carta (sobre) -->
-<div id="envelope">💌</div>
+    <div class="slide">
+        <h1>💫 La lira sonó</h1>
+        <p>y yo no podía dejar de mirarte con orgullo.</p>
+    </div>
 
-<!-- Carta abierta con papel -->
-<div id="card">
-  <div id="cardContent">
-    Te amo porque, aunque nuestra historia no ha sido fácil, ha sido real...
-    Hemos tenido momentos duros, discusiones, malentendidos y hasta días en los que parecía que todo se venía abajo… pero aun así, aquí seguimos.
-    Y si seguimos, es porque hay amor del verdadero, de ese que no se rinde, que duele, que lucha y que se aferra con el corazón entero.
+    <div class="slide">
+        <h1>❤️ Estoy orgulloso</h1>
+        <p>de la música que haces y de la persona que eres.</p>
+    </div>
 
-    A veces me equivoco, digo cosas sin pensar o dejo que mis emociones me ganen, pero nunca quiero que confundas eso con desamor. No hay un solo día en que deje de amarte. Aunque no siempre lo sepa expresar, tú estás en mi mente desde que amanece hasta que me duermo.
-    No quiero que dudes ni un segundo de lo que siento por ti, porque si algo tengo claro, es que te amo con todo lo que soy.
-
-    Contigo he aprendido que el amor no es solo risas, abrazos o palabras bonitas… también son lágrimas, paciencia, perdón y ganas de seguir cuando todo se complica. Y yo quiero seguir contigo, aun con los errores, aun con las heridas, aun con todo. Porque te elijo a ti, una y otra vez, incluso cuando el mundo se pone en contra.
-
-    Tú me haces sentir cosas que nadie más ha logrado. Me haces querer ser mejor, aprender a amar sin miedo y a valorar cada segundo que pasamos juntos. Eres mi caos y mi calma, mi punto débil y mi fuerza al mismo tiempo.
-    Si algún día llegas a dudar de lo que siento, solo recuerda esto: no importa cuántas veces discutamos, cuánto nos alejemos o cuánto duela… siempre voy a volver a ti, porque mi corazón sabe muy bien a dónde pertenece.
-
-    Te amo más de lo que puedo decir, más de lo que puedo demostrar y más de lo que imaginas. Eres mi historia favorita, incluso con todos sus capítulos difíciles 🩷
-  </div>
+    <div class="slide">
+        <h1 class="final-text">¿Un regalito más?</h1>
+        <button id="loveButton">Toca acá 💖</button>
+    </div>
 </div>
 
-<!-- Temporizador -->
-<div id="counter"></div>
+<div id="loveMessage">TE AMO 💕<br>Besitos en el cachete derecho 😘</div>
 
-<!-- Música: usa link directo de audio válido -->
-<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop></audio>
-
-<script>
-  // -------------------- ESCRITURA --------------------
-  function typeWriter(el, text, speed = 30, callback){
-    let i = 0;
-    el.innerHTML = '';
-    el.style.opacity = 1;
-    function typing(){
-      if(i < text.length){
-        el.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typing, speed);
-      } else if(callback){
-        callback();
-      }
-    }
-    typing();
-  }
-
-  // -------------------- SECUENCIA --------------------
-  setTimeout(()=>{
-    // Texto inicial
-    typeWriter(document.getElementById('text1'),'Para mi negrito 🩷',80, ()=>{
-      setTimeout(()=>{
-        document.getElementById('text1').style.opacity = 0;
-
-        // Pregunta + corazón abajo
-        document.getElementById('heart').style.opacity = 1;
-        typeWriter(document.getElementById('text2'),'¿Sabes por qué te amo?',60,()=>{
-          setTimeout(()=>{
-            document.getElementById('heart').style.opacity = 0;
-            document.getElementById('text2').style.opacity = 0;
-
-            // Carta aparece
-            let envelope = document.getElementById('envelope');
-            envelope.style.opacity = 1;
-
-            // Espera 2 segundos y desliza a la izquierda
-            setTimeout(()=>{
-              envelope.style.transform = 'translateX(-250px) scale(1.2)';
-              setTimeout(()=>{
-                envelope.style.opacity = 0;
-                let card = document.getElementById('card');
-                card.style.transform = 'scale(1) rotateX(0deg)';
-
-                setTimeout(()=>{
-                  let content = document.getElementById('cardContent');
-                  content.style.opacity = 1;
-
-                  // Temporizador al final
-                  setTimeout(()=>{
-                    document.getElementById('counter').style.opacity = 1;
-                  },2000);
-
-                },1000);
-
-              },1000);
-            },2000);
-
-          },5000);
-        });
-      },4000);
-    });
-  },500);
-
-  // -------------------- TEMPORIZADOR --------------------
-  function updateCounter(){
-    const startDate = new Date("2025-08-24T05:30:00"); // fecha inicio novios
-    const now = new Date();
-    const diff = now - startDate;
-
-    const days = Math.floor(diff / (1000*60*60*24));
-    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-    const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
-    const seconds = Math.floor((diff % (1000*60)) / 1000);
-
-    document.getElementById('counter').innerText = `Llevo contigo ${days}d ${hours}h ${minutes}m ${seconds}s 🩷`;
-  }
-
-  setInterval(updateCounter,1000);
-</script>
+<script src="script.js"></script>
 </body>
 </html>
+
+
