@@ -1,53 +1,70 @@
-const slides = document.querySelectorAll('.slide');
-let current = 0;
-
-document.body.addEventListener('click', () => {
-    nextSlide();
-    createHeart(event.clientX, event.clientY);
-});
-
-function nextSlide() {
-    slides[current].classList.remove('active');
-    current++;
-
-    if (current >= slides.length) {
-        current = 0;
-    }
-
-    slides[current].classList.add('active');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-function createHeart(x, y) {
-    const heart = document.createElement('div');
-    heart.innerHTML = '❤️';
-    heart.style.position = 'absolute';
-    heart.style.left = x + 'px';
-    heart.style.top = y + 'px';
-    heart.style.fontSize = '24px';
-    heart.style.animation = 'float 2s ease forwards';
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 2000);
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #2b1055, #5f7cff);
+    overflow: hidden;
+    color: white;
 }
 
-document.getElementById('loveButton').addEventListener('click', (e) => {
-    e.stopPropagation();
-    const message = document.getElementById('loveMessage');
-    message.style.display = 'flex';
+#slider {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
 
-    for (let i = 0; i < 30; i++) {
-        setTimeout(() => {
-            createHeart(
-                Math.random() * window.innerWidth,
-                Math.random() * window.innerHeight
-            );
-        }, i * 100);
-    }
+.slide {
+    position: absolute;
+    inset: 0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
 
-    setTimeout(() => {
-        message.style.display = 'none';
-        current = 0;
-        slides.forEach(s => s.classList.remove('active'));
-        slides[0].classList.add('active');
-    }, 4000);
-});
+.slide.active {
+    opacity: 1;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+#loveButton {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    background: #ff4d6d;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255,77,109,0.6);
+}
+
+#loveMessage {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2.3rem;
+    z-index: 10;
+}
